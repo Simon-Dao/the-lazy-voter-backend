@@ -1,0 +1,32 @@
+Main tasks
+- Serve information to via api routes
+- Every week or so, replace the entire database with updated information
+
+Specifications
+- Hosted on docker on a cloud VM instance (Google)
+
+Structure
+- idk what the django structure is gonna look like
+
+API routes
+
+FRONTEND
+Dashboard
+- Ethics Score
+- Basic information
+- Financials Pie Chart 
+- Breakdown of keywords sponsored
+- Voting attendances
+
+Campaign Financials
+- Financials Pie Chart with breakdowns by year
+- Top doners per year
+
+Policy
+- List of bills voted for
+- List of bills sponsored/cosponsored
+
+BACKEND
+
+Scheduler
+get all info past a certain date
