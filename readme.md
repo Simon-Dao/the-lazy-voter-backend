@@ -1,44 +1,54 @@
-# The Lazy Voter Backend
+# The Lazy Voter — Backend
 
-## Structure
+This repository contains the Django backend for **The Lazy Voter**. It does two main jobs:
 
-### Database Updater
+## What this backend does
 
-This downloads all of the data from several different api servers
+### 1) Caches government data locally (avoids rate limits)
+Instead of forcing the frontend to hit rate-limited government APIs directly, this backend downloads and stores data in a local database.
 
-### Database Server
+It can download and store:
+- Bills
+- Legislators
+- Campaign / finance data
+### Updating / downloading data (updater_service)
 
-Serves routes data from the database to the frontend client
+Government data is downloaded and cached locally using the **`updater_service`**.
 
-### Future addition
+Right now, the updater is run manually via:
 
-API Key management
+- **`updater_service/populate.py`**
 
-Extra Security features
+This script pulls data from government APIs and writes it into the local database so the frontend can query cached data without getting bottlenecked by rate limits.
 
-## App Structure
 
-### Core
+> Note 1: The population will take **hours** depending on how much data you choose to download. Downloading *all* government data locally is unrealistic. The updater script only downloads a **relevant subset** of data needed for this application.
 
-Stores the main database model that is used by all other apps
+#### Roadmap
+In the future, this will be replaced with a **command-line tool** for interacting with the updater service (e.g., running partial updates, selecting datasets, scheduling refreshes, etc.).
 
-## Data Sources
+### 2) Serves API endpoints to the frontend
+The backend exposes REST-style API routes that the frontend uses to query the cached data (e.g., search legislators/candidates, fetch bill details, etc.).
 
-### Federal Election Commision
+---
 
-Election data such as financing and election outcomes
+## Tech stack
+- Django (Python)
+- SQLite (default, stored locally)
+- Docker + Docker Compose (recommended for running)
 
-### Congress.gov
+---
 
-Data on bills, congress members, sponsored and cosponsored legislation
+## Getting started
 
-### voteview.com
+### Prerequisites
+- Docker Desktop (or Docker Engine) installed
+- Docker Compose v2 (`docker compose ...`)
 
-Data on vote bills
+### Run with Docker Compose
+1) Clone the repository:
+```bash
+git clone <YOUR_REPO_URL>
+cd <REPO_FOLDER>
 
-### Google Gemini 3
-
-For analysis of political data
-
-1. Download all of the bills
-2. For each bill, get the data for it
+docker compose up --build
