@@ -268,6 +268,12 @@ def populate_sponsored_bills(total_pool=-1, max_relevant=100):
     for legislator in legislators:
         existing_bills = set()
 
+        #TODO add a feature to turn this on or off im lazy
+        if BillSponsor.objects.filter(legislator=legislator).exists():
+            print("skipping",legislator.full_name)
+            continue
+
+
         if total_pool == -1:
             _, total_pool = get_sponsored_bills(legislator.bioguide_id, 0, 1)
 

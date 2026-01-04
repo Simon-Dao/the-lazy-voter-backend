@@ -96,7 +96,7 @@ def populate_donors(max_donors_per_committee=250, max_donors_per_campaign=50):
     for campaign in campaigns:
 
         fec_id = campaign.fec_id
-        election_year = campaign.election_year
+        election_year = campaign.election_year if campaign.election_year % 2 == 0 else campaign.election_year + 1
         donors_set = set()
         if election_year > datetime.now().year:
             continue

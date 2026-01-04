@@ -1,0 +1,11 @@
+### SEARCH LEGISLATURE DONE
+
+http://localhost:8000/api/v1/legislatures/search/?q=bernie%20sanders
+
+### GET LEGISLATOR DONE
+
+http://localhost:8000/api/v1/legislature/get/?bioguide_id=W000790
+
+### GET SPONSORED BILLS DONE
+
+http://localhost:8000/api/v1/legislature/sponsored/legislation?bioguide_id=W000790
