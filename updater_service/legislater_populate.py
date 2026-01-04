@@ -193,9 +193,16 @@ def populate_campaigns():
             "name": quote_plus(l.full_name),
             "api_key": FEC_API_KEY,
         }
+
+        #TODO remove dis pls
+        if Campaign.objects.filter(bioguide_id=l.bioguide_id).exists():
+            print('skipping', l.full_name)
+            continue
+
         offices = req.safe_request_params(
             url=f"{FEC_BASE_URL}/candidates/search/", params=fec_params
         ).get("results", [])
+
 
         campaigns = []
 

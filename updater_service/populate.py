@@ -29,15 +29,15 @@ def main():
     CONGRESS_NUMBER = 119
 
     # adds total amount of legislators
-    populate_legislatures(congress_number=CONGRESS_NUMBER, total_legislators=-1)
+    # populate_legislatures(congress_number=CONGRESS_NUMBER, total_legislators=-1)
 
     # adds terms and totals for terms
     populate_campaigns()
 
     # #adds 20 most revent bills with their subjects, sponsors
-    populate_sponsored_bills(total_pool=500, max_relevant=50)
+    # populate_sponsored_bills(total_pool=500, max_relevant=50)
 
     # #adds 50 top donors to each campaign
-    populate_donors(max_donors_per_committee=50, max_donors_per_campaign=50)
+    # populate_donors(max_donors_per_committee=50, max_donors_per_campaign=50)
 
 main()

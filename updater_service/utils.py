@@ -39,7 +39,10 @@ class Request:
 
     def safe_request_params(self, url, headers={"Accept": "application/json"}, params={}):
         while True:
-            self._rate_limit()
+            if "api.open.fec" in url:
+                self._rate_limit(6)
+            else:
+                self._rate_limit(1.2)
             try:
                 resp = requests.get(url, headers=headers, params=params, timeout=10)
 

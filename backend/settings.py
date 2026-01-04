@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-xpk#s-0a5@-t$b80u2m3gg$g)=txn-61e-f&7zc0mf^_zl3#d5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 # Application definition
 
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'updater_service',
+    'user_routes',
     'core',
 ]
 
