@@ -5,8 +5,12 @@ name = "pypi"
 
 [packages]
 django = "*"
+python-dotenv = "*"
+requests = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.12"
