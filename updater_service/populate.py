@@ -17,9 +17,6 @@ load_dotenv()
 # 4. Initialize Django
 django.setup()
 from legislater_populate import (
-    populate_legislatures,
-    populate_campaigns,
-    add_legislator_with_bioguide,
     populate_donors,
 )
 from bill_populate import populate_sponsored_bills

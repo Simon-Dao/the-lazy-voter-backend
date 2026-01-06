@@ -9,7 +9,7 @@ from core.db_models.legislator import Legislator
 
 class Campaign(models.Model):
     fec_id = models.CharField(max_length=100)
-    bioguide_id = models.ForeignKey(Legislator, on_delete=models.CASCADE)
+    legislator = models.ForeignKey(Legislator, on_delete=models.CASCADE)
     election_year = models.IntegerField(validators=[MinValueValidator(1776)], default=-1)
     # end_year = models.IntegerField(validators=[MinValueValidator(1776)], default=-1)
     office_full = models.CharField(max_length=100, default="")

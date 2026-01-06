@@ -6,6 +6,19 @@ http://localhost:8000/api/v1/legislatures/search/?q=bernie%20sanders
 
 http://localhost:8000/api/v1/legislature/get/?bioguide_id=W000790
 
-### GET SPONSORED BILLS DONE
+### GET SPONSORED BILLS
 
-http://localhost:8000/api/v1/legislature/sponsored/legislation?bioguide_id=W000790
+GET http://localhost:8000/api/v1/legislature/sponsored/legislation?bioguide_id=C001098
+Content-Type: application/json
+
+{
+  "keywords": ["Advanced technology and technological innovations"]
+}
+
+### GET DONORS DONE
+
+GET http://localhost:8000/api/v1/legislature/donors/?bioguide_id=C001098&limit=5 
+
+### GET TOTALS DONE
+
+http://localhost:8000/api/v1/legislature/totals/?bioguide_id=C001098&limit=5 
